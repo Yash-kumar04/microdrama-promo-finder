@@ -1,0 +1,27 @@
+{
+  "provider": "mock",
+  "model": "gemini-3.5-flash-lite",
+  "base_url": "https://generativelanguage.googleapis.com/v1beta",
+  "api_key_env": "GEMINI_API_KEY",
+  "temperature": 0,
+  "timeout_seconds": 90,
+  "max_attempts": 4,
+  "min_request_interval_seconds": 6,
+  "retry_base_seconds": 2,
+  "max_retry_sleep_seconds": 60,
+  "cache_dir": ".cache/llm",
+  "max_prompt_characters": 1500000,
+  "max_output_tokens": {"A": 12288, "B": 1024, "C": 32768},
+  "max_promos_per_episode": 2,
+  "openai_json_mode": true,
+  "openai_token_parameter": "max_tokens",
+  "provider_options": {},
+  "pricing": {
+    "input_usd_per_million": 0.10,
+    "output_usd_per_million": 0.40,
+    "reference_model": "gemini-2.5-flash-lite",
+    "source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "checked_date": "2026-11-08",
+    "note": "Paid-equivalent estimate only. Free quota depends on account/model. Change rates when swapping models. Actual bill is not observable here."
+  }
+}

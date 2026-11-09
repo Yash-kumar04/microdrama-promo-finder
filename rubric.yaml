@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "definitions": {
+    "hook": "Something within the first 3 seconds that stops a scroller: a slap, reveal, betrayal, threat or shocking line. A keyword alone is not proof.",
+    "cliffhanger": "An unresolved question, interrupted action, or reveal with no reaction. A scene ending or a resolved line does not qualify.",
+    "standalone": "A cold viewer understands the conflict with at most one line of context. Context is an evaluation allowance, not an added overlay.",
+    "emotional_intensity": "Strength of the conflict and stakes visible in the selected footage.",
+    "clean_cut": "Whole dialogue/action beats, with readable beginnings and endings; no clipped spoken line."
+  },
+  "weights": {"hook": 30, "cliffhanger": 30, "standalone": 20, "emotional_intensity": 10, "clean_cut": 10},
+  "hard_constraints": {
+    "min_duration_sec": 20, "max_duration_sec": 60, "hook_deadline_sec": 3,
+    "start_end_on_line_boundary": true, "never_end_on_resolved_beat": true
+  },
+  "ranking": {
+    "landing_episode_assumption": "New viewers start at episode 1; this is an assumption, not conversion evidence.",
+    "landing_bonus_max": 5, "landing_bonus_formula": "5 / first_segment_episode_number",
+    "diversity_penalty_per_prior_episode": 2,
+    "max_per_episode": 8, "max_overlap_fraction": 0.0,
+    "overlap_definition": "Shared source seconds / shorter candidate duration; 0 means no shared footage anywhere in final selections."
+  },
+  "generation": {"max_join_component_sec": 50, "min_join_component_sec": 3},
+  "heuristics": {
+    "hook_regex": "\\b(?:slap(?:s|ped|ping)?|betray(?:al|ed)?|kill(?:ed|ing)?|murder(?:ed)?|poison(?:ed)?|arrest(?:ed)?|execute(?:d)?|execution|die|dead|death|threat(?:en(?:s|ed)?)?|marrying me|never loved|not your|not my|duke|secret|traitor|treason|ruined|humiliate|prison|hang(?:ed)?|strik(?:es|ing)|struck)\\b",
+    "emotion_regex": "\\b(?:scream\\w*|sob\\w*|cry\\w*|furious|terrified|desperate|betray\\w*|trembl\\w*|rage|kill\\w*|death|threat\\w*|heartbroken)\\b",
+    "resolved_regex": "\\b(?:all is forgiven|forgive you|everything is (?:fine|over)|it is over|it's over|safe now|problem solved|thank you|happily ever after)\\b",
+    "interrupted_action_regex": "\\b(?:about to|poised to|interrupted|cut off|cuts off|before (?:he|she|they) can)\\b",
+    "reveal_regex": "\\b(?:i am the|he is the|she is the|is alive|still alive|is dead|your real|true identity|the truth is)\\b"
+  },
+  "verification": {
+    "deterministic_checks": ["20–60 seconds", "source-derived boundaries", "no split dialogue/action", "hook-event onset within 3 seconds", "ending proxy and resolution blacklist"],
+    "human_required": ["Hook actually lands in the first 3 seconds", "Ending is genuinely unresolved", "At most one context line is needed", "Cross-episode join is coherent"],
+    "candidate_status": "needs_review; never auto-approved as a final promo"
+  }
+}

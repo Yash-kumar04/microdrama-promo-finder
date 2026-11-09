@@ -1,0 +1,2 @@
+# Optional: general YAML syntax. Default JSON-compatible YAML needs stdlib only.
+PyYAML>=6.0,<7.0

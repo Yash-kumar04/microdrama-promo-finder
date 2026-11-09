@@ -1,0 +1,41 @@
+{
+  "basis": "Measured A payload chars; worst clip text for B; C size allowance. chars/4 with 25% input margin. Outputs budgeted at A=6000/episode, B=400/clip, C=100/promo. Not measured model usage.",
+  "reference_model": "gemini-2.5-flash-lite",
+  "pricing": {
+    "input_usd_per_million": 0.1,
+    "output_usd_per_million": 0.4,
+    "reference_model": "gemini-2.5-flash-lite",
+    "source": "https://ai.google.dev/gemini-api/docs/pricing",
+    "checked_date": "2026-11-08",
+    "note": "Paid-equivalent estimate only. Free quota depends on account/model. Change rates when swapping models. Actual bill is not observable here."
+  },
+  "source_episode_count": 50,
+  "measured_stage_A_chars": 1268007,
+  "stage_B_worst_case_chars": 346396,
+  "estimates": [
+    {
+      "episodes": 50,
+      "max_normal_calls": 151,
+      "input_tokens_estimate": 556689,
+      "output_tokens_estimate": 350000,
+      "paid_equivalent_usd": 0.1957,
+      "with_25_percent_retry_contingency_usd": 0.2446,
+      "offline_mock_cost_usd": 0
+    },
+    {
+      "episodes": 500,
+      "max_normal_calls": 1501,
+      "input_tokens_estimate": 5561260,
+      "output_tokens_estimate": 3500000,
+      "paid_equivalent_usd": 1.9561,
+      "with_25_percent_retry_contingency_usd": 2.4452,
+      "offline_mock_cost_usd": 0
+    }
+  ],
+  "limits": [
+    "Assumes the same candidate/event density and at most two Stage A acceptances per episode.",
+    "Free tier costs zero only while eligible and within quota; completion in one day is not guaranteed.",
+    "500-episode global ranking may require a larger model context/output budget; budget failures are logged, not silently truncated.",
+    "Reasoning tokens, retries, model price changes and verbose responses can increase costs."
+  ]
+}
