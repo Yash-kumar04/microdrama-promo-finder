@@ -2,6 +2,8 @@
 
 Pipeline: **parser** (code) -> **wide candidate generator** (code, up to 15 candidates per episode, including episode endings and cross-episode joins) -> **Stage A model review** (picks and scores) -> **code validator** (every timestamp is derived from parsed event IDs, never typed by the model) -> **Stage B cold-viewer test** -> **Stage C ranking** -> **overlap removal** (`postprocess_diverse.py`) -> human editor.
 
+[Open in Google Colab](https://colab.research.google.com/github/Yash-kumar04/microdrama-promo-finder/blob/main/run_colab.ipynb)
+
 ## Real run on the 50-episode pack (Gemini `gemini-3.5-flash-lite`, free tier)
 750 candidates -> 63 passed validation -> 47 passed the cold-viewer test and were ranked -> 35 after removing 12 overlapping clips. 0 failed stages. The last run logged about $0.009 of new paid-equivalent cost; this excludes earlier attempts and cached work. Rates in `config.yaml` are unverified and reference a different model. All clips are 20-60s.
 
